@@ -41,6 +41,16 @@ app.use("/Build", express.static(buildPath, {
     }
 }));
 
+// Serve the TemplateData directory for CSS and images
+const templateDataPath = path.join(__dirname, "TemplateData");
+app.use("/TemplateData", express.static(templateDataPath));
+
+const templateDataIconsPath = path.join(__dirname, "TemplateData/icons");
+app.use("/TemplateData/icons", express.static(templateDataIconsPath));
+
+// Serve the root directory for manifest and other files
+app.use(express.static(__dirname));
+
 // Serve index.html (Unity entry point)
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
