@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Start HTTP server (Render will provide SSL automatically)
+// Start HTTP server (Render handles HTTPS automatically)
 app.listen(PORT, () => {
     console.log(`🚀 Unity WebGL server running at: http://localhost:${PORT}`);
 });
